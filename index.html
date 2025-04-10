@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <img src="logo.jpg" alt="User" class="logo">
+        <div class="nav-buttons">
+            <button class="login" onclick="window.location.href='login.html'">Login</button>
+            <button class="signup" onclick="window.location.href='signup.html'">Sign up</button>
+        </div>
+    </div>
+    <div class="hero">
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Search your city">
+            <button onclick="getCurrentLocation()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        </div>
+        <div class="book">
+            <button>BOOK</button>
+        </div>
+    </div>    
+    <div class="slider">
+        <div class="card"><img src="nurseimg.png" alt="User"><h3>Tousif khan</h3><p>Bsc Nurseing</p></div>
+        <div class="card"><img src="nurseimg.png" alt="User"><h3>abc </h3><p>Bsc Nurseing</p></div>
+        <div class="card"><img src="nurseimg.png" alt="User"><h3>David</h3><p>Bsc Nurseing</p></div>
+        <div class="card"><img src="nurseimg.png" alt="User"><h3>your</h3><p>Bsc Nurseing</p></div>
+    </div>
+    <div class="service-section">
+        <div class="service-text">
+            <h1>Get Quality Care, Affordable Services</h1>
+            <p>At [Nurse service], we ensure our patients receive timely and compassionate care at the most affordable prices.</p>
+            <button>Book a nurse</button>
+        </div>
+        <div class="service-images">
+            <img src="care1.jpg" alt="Service 1">
+            <img src="care1.jpg" alt="Service 2">
+            <img src="care1.jpg" alt="Service 3">
+            <img src="care1.jpg" alt="Service 4">
+        </div>
+    </div>
+    <div class="service-section">
+        <div class="service-text">
+            <h1>Safety for all</h1>
+            <p>At Nurse service, your health and well-being are our priority. We're dedicated to providing compassionate and professional care to ensure your comfort and safety</p>
+            <button class="know">Know More ></button>
+        </div>
+        <div class="service-images1">
+            <img src="care.jpg" alt="Service 1">
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-column">
+            <h3>CONTACT</h3>
+            <p>Street: 2017 Harron Drive</p>
+            <p>City: Ajmer</p>
+            <p>State: Rajasthan</p>
+            <p>Zip Code: 305001</p>
+            <p>Phone: 8764311945</p>
+            <p>Mobile: 8764311945</p>
+        </div>
+        <div class="footer-column">
+            <h3>MENU</h3>
+            <a href="#">Home</a>
+            <a href="#">Books</a>
+            <a href="#">About</a>
+            <a href="#">Courses</a>
+            <a href="#">Our Blog</a>
+            <a href="#">Pricing</a>
+        </div>
+        <div class="footer-column">
+            <h3>RECENT POSTS</h3>
+            <a href="#">Breaking Down Barriers</a>
+            <a href="#">A Celebration of Success</a>
+            <a href="#">A World of Opportunities</a>
+        </div>
+        <div class="footer-column newsletter">
+            <h3>NEWSLETTER</h3>
+            <input type="email" placeholder="Your email address">
+            <button>SIGN UP</button>
+            <div class="social-icons">
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </div>
+    <!--  Bottom Sheet Confirmation Popup -->
+    <div class="overlay" id="overlay"></div>
+    <div class="bottom-sheet" id="bottomSheet">
+      <p><strong>Amount:</strong> 200rs</p>
+      <p>Since the delay was caused by the patient, a charge of 100rs per hour will be applicable.</p>
+      <button class="btn btn-confirm">Yes, Confirm</button>
+      <button class="btn btn-cancel">Cancel</button>
+    </div>
+</body>
+</html>

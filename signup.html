@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0c0c24;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        .signup-container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            width: 320px;
+            text-align: center;
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            color: red;
+        }
+        .signup-container h2 {
+            margin-bottom: 20px;
+        }
+        .signup-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .signup-container input:focus {
+            outline: none;
+        }
+        .signup-container .signup-btn {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .signup-container .signup-btn:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <button class="close-btn" onclick="window.location.href='index.html'">❌</button>
+        <h2>Sign Up</h2>
+        <input type="text" id="fullName" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="city" placeholder="City" required>
+        <input type="text" id="state" placeholder="State" required>
+        <input type="tel" id="contact" placeholder="Contact" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <button class="signup-btn" id="signupBtn">Sign Up</button>
+    </div>
+    <script>
+        document.getElementById("signupBtn").addEventListener("click", function () {
+            const name = document.getElementById("fullName").value;
+            const email = document.getElementById("email").value;
+        
+            if (!email || !name) {
+                alert("Please enter your full name and email.");
+                return;
+            }
+        
+            // Optional: basic email validation
+            if (!email.includes("@")) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+            // Save to localStorage
+            localStorage.setItem("userName", name);
+            localStorage.setItem("userEmail", email);
+        
+            fetch("http://localhost:3000/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    to: email,
+                    subject: "Welcome to Aevum Nurse!",
+                    text: `Hello ${name},\n\nThank you for connected with Aevum Nurse! We're excited to serve you.\n\nRegards,\nAevum Nurse Team`
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log("Email sent:", data);
+                alert("Signup successful! Confirmation email sent.");
+                // Optional: Redirect to home or login page
+                window.location.href = "index.html";
+            })
+            .catch(err => {
+                console.error("Failed to send email", err);
+                alert("Failed to send confirmation email.");
+            });
+        });
+        </script>
+        
+</body>
+</html>
